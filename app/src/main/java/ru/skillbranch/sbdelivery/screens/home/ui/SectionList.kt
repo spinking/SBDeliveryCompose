@@ -50,7 +50,7 @@ fun SectionList(
             Text(text = title, style = MaterialTheme.typography.h6)
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = if (expanded.not()) "Смю всё" else "Свернуть",
+                text = if (expanded.not()) "См. всё" else "Свернуть",
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colors.secondary,
                 modifier = Modifier

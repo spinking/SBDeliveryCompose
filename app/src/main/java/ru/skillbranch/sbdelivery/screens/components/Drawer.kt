@@ -11,6 +11,8 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -50,6 +52,9 @@ fun NavigationDrawer(
     cartCount: Int = 0,
     onSelect: (String) -> Unit
 ) {
+
+    val showDialog = remember { mutableStateOf(false) }
+
     Column(modifier = modifier.background(color = MaterialTheme.colors.surface)) {
         user?.let {
             Box(
@@ -82,7 +87,7 @@ fun NavigationDrawer(
                     Icon(
                         tint = MaterialTheme.colors.onBackground,
                         painter = painterResource(id = R.drawable.ic_baseline_exit_to_app_24),
-                        contentDescription = "exit"
+                        contentDescription = "Logout"
                     )
                 }
             }
@@ -137,6 +142,9 @@ fun NavigationDrawer(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .height(44.dp)
+                .clickable {
+                    showDialog.value = true
+                }
                 .fillMaxWidth()
         ) {
             Spacer(modifier = Modifier.width(30.dp))
@@ -153,6 +161,11 @@ fun NavigationDrawer(
             )
         }
     }
+
+    if (showDialog.value)
+        AboutDialog {
+            showDialog.value = false
+        }
 }
 
 @Preview
