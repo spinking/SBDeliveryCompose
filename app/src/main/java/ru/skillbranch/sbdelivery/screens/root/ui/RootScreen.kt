@@ -64,7 +64,9 @@ fun RootScreen(vm: RootViewModel) {
                     if (state.currentRoute == route ) return@NavigationDrawer
                     vm.navigate(NavCmd.To(route))
                     scope.launch { scaffoldState.drawerState.close() }
-            })
+                },
+                onLogout = {}
+            )
         },
         drawerScrimColor = MaterialTheme.colors.primaryVariant.copy(alpha = DrawerDefaults.ScrimOpacity),
         snackbarHost = { host ->

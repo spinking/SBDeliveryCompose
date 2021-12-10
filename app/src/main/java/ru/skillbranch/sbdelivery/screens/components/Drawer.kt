@@ -50,6 +50,7 @@ fun NavigationDrawer(
     user: User? = User("Сидоров Иван", "sidorov.ivan@mail.ru"),
     notificationCount: Int = 0,
     cartCount: Int = 0,
+    onLogout: () -> Unit,
     onSelect: (String) -> Unit
 ) {
 
@@ -81,7 +82,7 @@ fun NavigationDrawer(
                 }
 
                 IconButton(
-                    onClick = { /*TODO*/ },
+                    onClick = { onLogout.invoke() },
                     modifier = Modifier.offset(x = (-12).dp, y = (-12).dp)
                 ) {
                     Icon(
@@ -172,7 +173,7 @@ fun NavigationDrawer(
 @Composable
 fun DrawerPreview() {
     AppTheme {
-        NavigationDrawer("home", notificationCount = 7, cartCount = 8) {
+        NavigationDrawer("home", notificationCount = 7, cartCount = 8, onLogout = {}) {
 
         }
     }
