@@ -46,12 +46,12 @@ fun AboutDialogContent(onDismiss: () -> Unit) {
                 Icon(
                     tint = MaterialTheme.colors.primary,
                     painter = painterResource(id = R.drawable.ic_baseline_close_24),
-                    contentDescription = "Toggle favorite"
+                    contentDescription = "О приложении SBDelivery"
                 )
             }
 
             Text(
-                text = "О приложении",
+                text = "О приложении SBDelivery",
                 style = MaterialTheme.typography.h6,
                 color = MaterialTheme.colors.primary,
                 modifier = Modifier.constrainAs(title) {

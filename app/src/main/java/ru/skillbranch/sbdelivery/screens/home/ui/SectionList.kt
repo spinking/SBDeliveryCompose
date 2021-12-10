@@ -50,7 +50,7 @@ fun SectionList(
             Text(text = title, style = MaterialTheme.typography.h6)
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = if (expanded.not()) "См. всё" else "Свернуть",
+                text = if (expanded.not()) "См. все" else "Свернуть",
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colors.secondary,
                 modifier = Modifier
@@ -163,7 +163,7 @@ fun ShimmerSection(
             Text(text = title, style = MaterialTheme.typography.h6)
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = "См. всё",
+                text = "См. все",
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colors.secondary,
                 modifier = Modifier.padding(8.dp)
