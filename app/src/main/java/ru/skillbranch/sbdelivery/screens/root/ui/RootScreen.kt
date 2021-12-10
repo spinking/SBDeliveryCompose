@@ -16,6 +16,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import ru.skillbranch.sbdelivery.screens.cart.ui.CartScreen
+import ru.skillbranch.sbdelivery.screens.components.AboutDialog
 import ru.skillbranch.sbdelivery.screens.components.DefaultToolbar
 import ru.skillbranch.sbdelivery.screens.components.DishesToolbar
 import ru.skillbranch.sbdelivery.screens.components.NavigationDrawer
@@ -43,6 +44,8 @@ fun RootScreen(vm: RootViewModel) {
         }
     }
 
+    val showDialog = remember { mutableStateOf(false) }
+
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
@@ -62,8 +65,12 @@ fun RootScreen(vm: RootViewModel) {
                 //user = state.user,
                 onSelect = { route ->
                     if (state.currentRoute == route ) return@NavigationDrawer
-                    vm.navigate(NavCmd.To(route))
-                    scope.launch { scaffoldState.drawerState.close() }
+                    if (route == "about") {
+                        showDialog.value = true
+                    } else {
+                        vm.navigate(NavCmd.To(route))
+                        scope.launch { scaffoldState.drawerState.close() }
+                    }
                 },
                 onLogout = {}
             )
@@ -98,6 +105,10 @@ fun RootScreen(vm: RootViewModel) {
                 })
         },
     )
+    if (showDialog.value)
+        AboutDialog {
+            showDialog.value = false
+        }
 }
 
 @ExperimentalCoroutinesApi

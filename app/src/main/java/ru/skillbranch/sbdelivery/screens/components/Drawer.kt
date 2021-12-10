@@ -11,8 +11,6 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -53,8 +51,6 @@ fun NavigationDrawer(
     onLogout: () -> Unit,
     onSelect: (String) -> Unit
 ) {
-
-    val showDialog = remember { mutableStateOf(false) }
 
     Column(modifier = modifier.background(color = MaterialTheme.colors.surface)) {
         user?.let {
@@ -145,7 +141,6 @@ fun NavigationDrawer(
                 .height(44.dp)
                 .clickable {
                     onSelect.invoke("about")
-                    showDialog.value = true
                 }
                 .fillMaxWidth()
         ) {
@@ -163,11 +158,6 @@ fun NavigationDrawer(
             )
         }
     }
-
-    if (showDialog.value)
-        AboutDialog {
-            showDialog.value = false
-        }
 }
 
 @Preview
