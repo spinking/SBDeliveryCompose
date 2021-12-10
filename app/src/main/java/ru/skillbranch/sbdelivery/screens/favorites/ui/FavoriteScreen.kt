@@ -12,6 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import ru.skillbranch.sbdelivery.R
+import ru.skillbranch.sbdelivery.screens.components.LazyGrid
 import ru.skillbranch.sbdelivery.screens.dishes.data.DishesUiState
 import ru.skillbranch.sbdelivery.screens.dishes.logic.DishesState
 import ru.skillbranch.sbdelivery.screens.root.logic.Msg
@@ -23,7 +24,7 @@ import ru.skillbranch.sbdelivery.screens.root.logic.Msg
 fun FavoriteScreen(state: DishesState, accept: (Msg) -> Unit) {
 
     when (state.list) {
-        is DishesUiState.Value -> {
+        is DishesUiState.Value -> LazyGrid(items = state.list.dishes) { dish ->
 
         }
 
