@@ -46,7 +46,7 @@ fun AboutDialogContent(onDismiss: () -> Unit) {
                 Icon(
                     tint = MaterialTheme.colors.primary,
                     painter = painterResource(id = R.drawable.ic_baseline_close_24),
-                    contentDescription = "О приложении SBDelivery"
+                    contentDescription = "Close"
                 )
             }
 
