@@ -144,6 +144,7 @@ fun NavigationDrawer(
             modifier = Modifier
                 .height(44.dp)
                 .clickable {
+                    onSelect.invoke("about")
                     showDialog.value = true
                 }
                 .fillMaxWidth()

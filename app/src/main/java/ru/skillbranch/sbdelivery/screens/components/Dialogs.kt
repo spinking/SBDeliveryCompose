@@ -83,7 +83,7 @@ fun AboutDialogContent(onDismiss: () -> Unit) {
                 }
             ) {
                 Text(
-                    text = "Ok",
+                    text = "Ок",
                     color = MaterialTheme.colors.onSecondary,
                     fontWeight = FontWeight.Bold
                 )
